@@ -129,11 +129,45 @@ a {
     text-align: center;
 }
 
+.text-center-flex,
+.card-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Holographic Gradient Animation */
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .text-gradient {
-    background: linear-gradient(to bottom, #FFFFFF 40%, #666666 100%);
+    /* Premium Holographic Gradient */
+    background: linear-gradient(270deg,
+            #FFFFFF 0%,
+            #e0e0e0 20%,
+            #00E6A8 40%,
+            #00F0FF 60%,
+            #7018FF 80%,
+            #FFFFFF 100%);
+    background-size: 300% 300%;
+    animation: shimmer 8s ease infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
 }
 
 /* 4. SCROLLBAR */
@@ -285,7 +319,7 @@ a {
     display: block;
     transform: translateY(120%);
     filter: blur(5px);
-    transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), filter 2.5s ease;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s ease;
 }
 
 .is-visible .reveal-inner {
@@ -312,7 +346,7 @@ a {
     /* Increased distance */
     filter: blur(10px);
     /* Cinematic blur start */
-    transition: all 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 1.6s cubic-bezier(0.25, 1, 0.5, 1);
     /* Epic duration & easing */
     will-change: transform, opacity, filter;
 }
@@ -399,6 +433,22 @@ a {
     color: var(--text-secondary);
 }
 
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+    color: white;
+}
+
 /* 7. COMPONENTS (BENTO & CARDS) */
 
 /* Section Layout */
@@ -454,20 +504,19 @@ a {
 
 /* Card Styles (The "Dark Matter" Look) */
 .bento-card {
-    background-color: rgba(10, 10, 10, 0.4);
-    /* More transparent */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtler border */
+    background-color: rgba(10, 10, 10, 0.3);
+    /* Deep Glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
     padding: 40px;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Color Accents */
@@ -501,10 +550,12 @@ a {
 
 /* Card Interactions */
 .bento-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background-color: rgba(25, 25, 25, 0.7);
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(30, 30, 30, 0.6);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.05) inset;
 }
 
 /* Dynamic Inner Glow */
@@ -751,7 +802,6 @@ div#ai-chat-window.chat-hidden {
     background: transparent;
     /* Ensure no background */
     object-fit: contain;
-    /* mix-blend-mode removed */
 }
 
 .chat-header h4 {
@@ -914,7 +964,6 @@ div#ai-chat-window.chat-hidden {
 .robot-mascot img {
     width: 100%;
     filter: drop-shadow(0 0 20px rgba(112, 24, 255, 0.4));
-    /* mix-blend-mode removed */
 }
 
 .robot-greeting-bubble {
@@ -959,13 +1008,13 @@ div#ai-chat-window.chat-hidden {
 </style>
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/logo_final.png">
+    <link rel="icon" href="logo_transparent_1769826451330.png">
 
     <!-- Open Graph / SEO -->
     <meta property="og:title" content="4Labs | Automatización Comercial y Operativa">
     <meta property="og:description"
         content="Automatizamos ventas y soporte para empresas medianas. Chatbots inteligentes y experiencias digitales conectadas a tu operación.">
-    <meta property="og:image" content="assets/images/logo_final.png">
+    <meta property="og:image" content="logo_transparent_1769826451330.png">
     <meta property="og:url" content="https://4labs.co">
     <meta property="og:type" content="website">
 
@@ -993,7 +1042,7 @@ div#ai-chat-window.chat-hidden {
                 <li><a href="#casos" class="nav-link">Casos de uso</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-            <a href="https://wa.me/50672293518" class="nav-cta" target="_blank">
+            <a href="https://wa.me/50672293518" class="nav-cta btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
             </a>
         </div>
@@ -1007,10 +1056,7 @@ div#ai-chat-window.chat-hidden {
         <div class="hero-bg-layer bg-gradient-glow"></div>
         <div class="hero-bg-layer bg-stars"></div> <!-- CSS Stars or Canvas -->
 
-        <!-- Center Visual (The "Hologram" anchored behind text) -->
-        <div class="hero-visual-anchor">
-            <img src="assets/images/ai-hologram-hd.png" alt="Core AI" class="hologram-pulse">
-        </div>
+        <!-- Center Visual Removed -->
 
         <div class="container-custom flex-col flex-center" style="position: relative; z-index: 10;">
             <!-- Status Pill -->
@@ -1049,7 +1095,7 @@ div#ai-chat-window.chat-hidden {
     <section id="problemas" class="section">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title reveal-text"><span>Lo que resolvemos</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Lo que resolvemos</span></h2>
                 <p class="section-subtitle reveal-text"><span>Si te identificas con esto, podemos ayudarte.</span></p>
             </div>
             <div class="bento-grid">
@@ -1100,7 +1146,7 @@ div#ai-chat-window.chat-hidden {
     <section id="productos" class="section">
         <div class="container-custom">
             <div class="section-header reveal">
-                <h2 class="section-title reveal-text"><span>Línea de Chatbots</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Línea de Chatbots</span></h2>
                 <p class="section-subtitle reveal-text"><span>Asistentes inteligentes que operan en el núcleo de tu
                         negocio.</span></p>
             </div>
@@ -1108,8 +1154,8 @@ div#ai-chat-window.chat-hidden {
             <div class="bento-grid">
                 <!-- Comercial Externo -->
                 <!-- Comercial Externo -->
-                <div class="bento-card span-2 row-2 ecosystem-card-image reveal accent-green">
-                    <div class="ecosystem-overlay" data-speed="0.03">
+                <div class="bento-card span-2 row-2 ecosystem-card-image reveal accent-green card-centered">
+                    <div class="ecosystem-overlay">
                         <div class="card-icon" style="margin-bottom: 15px;"><i class="fa-solid fa-users"></i></div>
                         <span class="status-tag sales">MÓDULO DE VENTAS</span>
                         <h3 class="type-writer">Comercial Externo</h3>
@@ -1122,7 +1168,7 @@ div#ai-chat-window.chat-hidden {
                 </div>
 
                 <!-- Técnico Externo -->
-                <div class="bento-card reveal stagger-1 accent-blue">
+                <div class="bento-card reveal stagger-1 accent-blue card-centered">
                     <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
                     <h3 class="type-writer">Soporte Técnico</h3>
                     <p>Clasificación automática de tickets y recepción de evidencias multimedia.</p>
@@ -1131,9 +1177,8 @@ div#ai-chat-window.chat-hidden {
                 <!-- Dirección -->
                 <!-- Dirección -->
                 <!-- Dirección -->
-                <div class="bento-card row-2 ecosystem-card-image reveal stagger-2 accent-purple">
-                    <div class="ecosystem-overlay" data-speed="0.05"
-                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div class="bento-card row-2 ecosystem-card-image reveal stagger-2 accent-purple card-centered">
+                    <div class="ecosystem-overlay">
                         <div class="card-icon" style="margin-bottom: 15px;"><i class="fa-solid fa-chart-pie"></i></div>
                         <h3 class="type-writer">Módulo de Dirección</h3>
                         <p>Visión total del negocio en tiempo real. Reportes ejecutivos directos a tu móvil.</p>
@@ -1141,7 +1186,7 @@ div#ai-chat-window.chat-hidden {
                 </div>
 
                 <!-- Comercial Interno -->
-                <div class="bento-card accent-purple">
+                <div class="bento-card accent-purple card-centered">
                     <div class="card-icon"><i class="fa-solid fa-user-tie"></i></div>
                     <h3 class="type-writer">Asistente Interno</h3>
                     <p>Garantiza el seguimiento de leads y asiste a tu equipo comercial.</p>
@@ -1149,7 +1194,7 @@ div#ai-chat-window.chat-hidden {
 
                 <!-- Gestión Operativa -->
                 <!-- Gestión Operativa -->
-                <div class="bento-card accent-green">
+                <div class="bento-card accent-green card-centered">
                     <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <h3 class="type-writer">Gestión de Campo</h3>
                     <p>Cierre de tickets y reportes rápidos para técnicos en calle garantizando trazabilidad total.</p>
@@ -1162,7 +1207,7 @@ div#ai-chat-window.chat-hidden {
     <section class="section" style="padding-top: 0;">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title reveal-text"><span>Web & Apps</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Web & Apps</span></h2>
                 <p class="section-subtitle reveal-text"><span>Tu operación orquestada desde una oficina digital
                         inteligente.</span></p>
             </div>
@@ -1198,7 +1243,7 @@ div#ai-chat-window.chat-hidden {
                   So I must use container-custom. -->
             <div class="container-custom">
                 <div class="section-header">
-                    <h2 class="section-title reveal-text"><span>Por qué 4Labs</span></h2>
+                    <h2 class="section-title reveal-text"><span class="text-gradient">Por qué 4Labs</span></h2>
                 </div>
                 <!-- Reusing bento grid for why items -->
                 <div class="bento-grid" style="grid-template-columns: repeat(4, 1fr);">
@@ -1230,7 +1275,7 @@ div#ai-chat-window.chat-hidden {
     <section id="proceso" class="section">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title reveal-text"><span>Nuestra Metodología</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Nuestra Metodología</span></h2>
                 <p class="section-subtitle reveal-text"><span>Ingeniería de procesos reales aplicada a la
                         automatización.</span></p>
             </div>
@@ -1277,7 +1322,7 @@ div#ai-chat-window.chat-hidden {
     <section id="casos" class="section">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title reveal-text"><span>Resultados Reales</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Resultados Reales</span></h2>
                 <p class="section-subtitle reveal-text"><span>Problemas complejos, soluciones simples.</span></p>
             </div>
 
@@ -1352,80 +1397,74 @@ div#ai-chat-window.chat-hidden {
     <section id="contacto" class="section">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title reveal-text"><span>Hablemos de Tu Proyecto</span></h2>
+                <h2 class="section-title reveal-text"><span class="text-gradient">Hablemos de Tu Proyecto</span></h2>
                 <p class="section-subtitle reveal-text"><span>Agenda una conversación técnica y veamos cómo podemos
                         escalar tu operación.</span></p>
             </div>
             <div class="bento-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 30px;">
                 <!-- Form Side -->
                 <div class="bento-card span-2 accent-purple" style="padding: 50px;">
-                    <h3 style="font-size: 2rem; margin-bottom: 30px; text-transform: uppercase;">Apertura de Ticket</h3>
-                    <form id="unified-contact-form">
-                        <div class="form-group">
-                            <label class="form-label">Responsable / Nombre</label>
-                            <input type="text" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Entidad / Empresa</label>
-                            <input type="text" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Canal de Contacto (WA/Email)</label>
-                            <input type="text" class="form-input">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 30px;">
-                            <label class="form-label">Requerimientos Técnicos</label>
-                            <textarea rows="4" class="form-input" style="resize: vertical;"></textarea>
-                        </div>
-                        <button type="submit" class="btn-ganify primary" style="width: 100%;">ENVIAR SOLICITUD DE
-                            DIAGNÓSTICO</button>
-                    </form>
-                </div>
+                    <!-- Form Side -->
+                    <div class="bento-card span-2 accent-purple card-centered" style="padding: 50px;">
+                        <div class="card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px; text-transform: uppercase;">Agenda una Reunión
+                        </h3>
+                        <p style="margin-bottom: 30px; max-width: 400px;">Selecciona el horario que mejor te funcione en
+                            nuestro calendario.</p>
+                        <a href="https://cal.com/ventas4labs-86faii" target="_blank" class="btn-ganify primary">
+                            <span class="btn-text">AGENDAR AHORA</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
 
-                <!-- Info Side -->
-                <div style="display: flex; flex-direction: column; gap: 30px;">
-                    <div class="bento-card ecosystem-card-image accent-blue" style="min-height: 250px;">
-                        <!-- Using CSS for background image if needed or keeping inline just for image url if dynamic -->
-                        <!-- Keeping inline for specific image is slightly acceptable if classes handle the rest, but let's try to be clean. 
+                    <!-- Info Side -->
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div class="bento-card ecosystem-card-image accent-blue" style="min-height: 250px;">
+                            <!-- Using CSS for background image if needed or keeping inline just for image url if dynamic -->
+                            <!-- Keeping inline for specific image is slightly acceptable if classes handle the rest, but let's try to be clean. 
                               I'll add a class for this specific card bg in logic or just leave inline for the URL only. 
                               Actually, better to remove inline and use a class .bg-handshake 
                           -->
-                        <div class="ecosystem-overlay">
-                            <div class="card-icon" style="margin-bottom: 15px;"><i class="fa-solid fa-handshake"></i>
+                            <div class="ecosystem-overlay">
+                                <div class="card-icon" style="margin-bottom: 15px;"><i
+                                        class="fa-solid fa-handshake"></i>
+                                </div>
+                                <span class="status-tag control">Partnership Digital</span>
                             </div>
-                            <span class="status-tag control">Partnership Digital</span>
-                        </div>
-                    </div>
-
-                    <div class="bento-card accent-green" style="padding: 30px;">
-                        <h4
-                            style="color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">
-                            Directorio de Enlace</h4>
-
-                        <div style="margin-bottom: 20px;">
-                            <div style="color: #555; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">
-                                WhatsApp Operativo</div>
-                            <a href="https://wa.me/50672293518"
-                                style="font-size: 1.1rem; color: var(--neon-blue); text-decoration: none; font-weight: 700;">+506
-                                7229 3518</a>
                         </div>
 
-                        <div style="margin-bottom: 25px;">
-                            <div style="color: #555; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">
-                                Email Corporativo</div>
-                            <div style="font-size: 1.1rem; color: #fff;">ventas4labs@gmail.com</div>
-                        </div>
+                        <div class="bento-card accent-green" style="padding: 30px;">
+                            <h4
+                                style="color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">
+                                Directorio de Enlace</h4>
 
-                        <div
-                            style="background: rgba(112, 24, 255, 0.05); padding: 20px; border-left: 2px solid var(--primary-purple);">
-                            <p style="font-size: 0.85rem; color: #888; margin: 0; font-style: italic;">"Nuestra meta no
-                                es vender software, es construir la infraestructura que libere el potencial de tu
-                                equipo."</p>
+                            <div style="margin-bottom: 20px;">
+                                <div
+                                    style="color: #555; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">
+                                    WhatsApp Operativo</div>
+                                <a href="https://wa.me/50672293518"
+                                    style="font-size: 1.1rem; color: var(--neon-blue); text-decoration: none; font-weight: 700;">+506
+                                    7229 3518</a>
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <div
+                                    style="color: #555; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">
+                                    Email Corporativo</div>
+                                <div style="font-size: 1.1rem; color: #fff;">ventas4labs@gmail.com</div>
+                            </div>
+
+                            <div
+                                style="background: rgba(112, 24, 255, 0.05); padding: 20px; border-left: 2px solid var(--primary-purple);">
+                                <p style="font-size: 0.85rem; color: #888; margin: 0; font-style: italic;">"Nuestra meta
+                                    no
+                                    es vender software, es construir la infraestructura que libere el potencial de tu
+                                    equipo."</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -1441,7 +1480,7 @@ div#ai-chat-window.chat-hidden {
     <div id="ai-chat-wrapper">
         <div id="ai-chat-window" class="chat-hidden">
             <div class="chat-header">
-                <img src="assets/images/robot_greeting.png" alt="Mascota 4Labs">
+                <img src="assets/images/mascot_v2.png" alt="Mascota 4Labs">
                 <div>
                     <h4>Lab</h4>
                     <span class="status-online">En línea</span>
@@ -1460,7 +1499,7 @@ div#ai-chat-window.chat-hidden {
 
         <div class="robot-mascot" id="mascot-trigger">
             <div class="robot-greeting-bubble">¡Hola! ¿Automatizamos? 🚀</div>
-            <img src="assets/images/robot_greeting.png" alt="Robot Assistant">
+            <img src="assets/images/mascot_v2.png" alt="Robot Assistant">
         </div>
     </div>
 
@@ -1711,8 +1750,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('send-chat');
     const messagesContainer = document.getElementById('chat-messages');
 
+    let greetingInterval; // Define variable in scope
+
     function toggleChat() {
         chatWindow.classList.toggle('chat-hidden');
+
+        // Stop greeting if chat is open
+        if (!chatWindow.classList.contains('chat-hidden')) {
+            if (greetingInterval) clearInterval(greetingInterval);
+            const bubble = document.querySelector('.robot-greeting-bubble');
+            if (bubble) bubble.style.display = 'none';
+        }
     }
 
     if (mascotTrigger) mascotTrigger.addEventListener('click', toggleChat);
@@ -1794,7 +1842,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start rotation
     if (bubble) {
         bubble.classList.add('visible'); // Show initial
-        setInterval(rotateGreeting, 5000); // Change every 5s
+        greetingInterval = setInterval(rotateGreeting, 5000); // Change every 5s
     }
 
     // Auto-open logic (Disabled by user request)

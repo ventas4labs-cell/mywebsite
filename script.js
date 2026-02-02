@@ -244,8 +244,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('send-chat');
     const messagesContainer = document.getElementById('chat-messages');
 
+    let greetingInterval; // Define variable in scope
+
     function toggleChat() {
         chatWindow.classList.toggle('chat-hidden');
+
+        // Stop greeting if chat is open
+        if (!chatWindow.classList.contains('chat-hidden')) {
+            if (greetingInterval) clearInterval(greetingInterval);
+            const bubble = document.querySelector('.robot-greeting-bubble');
+            if (bubble) bubble.style.display = 'none';
+        }
     }
 
     if (mascotTrigger) mascotTrigger.addEventListener('click', toggleChat);
@@ -327,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start rotation
     if (bubble) {
         bubble.classList.add('visible'); // Show initial
-        setInterval(rotateGreeting, 5000); // Change every 5s
+        greetingInterval = setInterval(rotateGreeting, 5000); // Change every 5s
     }
 
     // Auto-open logic (Disabled by user request)
